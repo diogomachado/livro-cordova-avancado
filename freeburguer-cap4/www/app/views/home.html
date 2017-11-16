@@ -1,3 +1,14 @@
-<header class="header">
-    <h1 class="header-title">Cardápio</h1>
+<header class="toolbar {{ device }} barFixed">
+    <section class="buttons"></section>
+
+    <section class="title {{ device }}">
+        Hamburgueria
+    </section>
+
+    <section class="buttons">
+        <button class="{{ device }}" ng-click="logout()">
+            <i class="exit"></i>
+            <span class="text">Sair</span>
+        </button>
+    </section>
 </header>
