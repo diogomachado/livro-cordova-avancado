@@ -1,0 +1,1 @@
+Arquivos para download do livro, cada versão do aplicativo aqui possui configurado em `config.xml` a ID como io.apps.freeburguer.<CAPITULO>, apesar de que no livro usamos apenas io.apps.freeburguer, isso foi feito para evitar problemas de ID única.
