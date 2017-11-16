@@ -1,0 +1,23 @@
+{
+  "name": "io.apps.freeburguer",
+  "version": "1.0.0",
+  "displayName": "Freeburguer",
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-splashscreen": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "~6.3.0",
+    "cordova-ios": "^4.5.3",
+    "cordova-plugin-splashscreen": "~4.1.0",
+    "cordova-plugin-statusbar": "~2.3.0",
+    "cordova-plugin-whitelist": "1"
+  }
+}
