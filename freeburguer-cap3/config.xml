@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.apps.freeburguer.cap3" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Freeburguer</name>
+    <name>Freeburguer Cap3</name>
     <description>
         Plataforma para pedidos de hamburguers
     </description>
@@ -88,6 +88,7 @@
     <preference name="SplashScreenDelay" value="5000" />
     <preference name="FadeSplashScreenDuration" value="1000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <engine name="android" spec="^6.3.0" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-statusbar" spec="~2.3.0" />
     <plugin name="cordova-plugin-splashscreen" spec="~4.1.0" />
