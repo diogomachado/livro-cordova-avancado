@@ -1,42 +1,67 @@
 (function() {
     'use strict';
 
-    angular.module('app',['ngRoute'])
-    .config(function($routeProvider)
+    /**
+      * Definição do app AngularJS e suas rotas
+      */
+    angular.module('app',['ngRoute', 'ngAnimate'])
+    .config(function($routeProvider, $compileProvider)
     {
         $routeProvider
+        // Página inicial
         .when('/', {
-            templateUrl  : 'app/views/home.html',
-            controller   : 'HomeController',
-            controllerAs : 'Home'
+            templateUrl  : 'app/views/home.html'
         })
-        .when('/cardapio/:id_empresa', {
-            templateUrl  : 'app/views/cardapio.html',
-            controller   : 'CardapioController',
-            controllerAs : 'Cardapio'
+        // Rota para abrir o cardápio da empresa
+        .when('/cardapio', {
+            templateUrl  : 'app/views/cardapio.html'
         })
+        // Rota para fazer a buscar por um pedido
         .when('/buscar-pedido', {
-            templateUrl  : 'app/views/pedido-busca.html',
-            controller   : 'PedidoBuscaController',
-            controllerAs : 'PedidoBusca'
+            templateUrl  : 'app/views/pedido-busca.html'
         })
-        .when('/pedido-info/:id_pedido', {
-            templateUrl  : 'app/views/pedido-info.html',
-            controller   : 'PedidoInfoController',
-            controllerAs : 'PedidoInfo'
+        // Rota para ver informações de um pedido
+        .when('/pedido-info', {
+            templateUrl  : 'app/views/pedido-info.html'
         })
         .otherwise ({ redirectTo: '/' });
     })
-    .run(function($rootScope){
+    /**
+      * Evento `run` garante que o AngularJS está carregado
+      */
+    .run(function($rootScope, $location, $timeout, $window){
+
+        // TODO: apenas para teste no navegador
+        $rootScope.device = 'ios';
+
+        /**
+          * Evento que garante que o Cordova está carregado
+          */
         document.addEventListener("deviceready", function () {
 
-            // Captura o device que o Cordova está rodando
+            /**
+              * Identifica a plataforma (ios|android)
+              */
             var plataforma = device.platform;
             $rootScope.device = plataforma.toLowerCase();
 
-            alert($rootScope.device);
-
         }, false);
-    });
 
+
+        /**
+          * Rastreia a mudança de rota e coleta o path do navegador
+          */
+        $rootScope.$on("$locationChangeStart", function (event, next, current) {
+
+            // Salva o caminho da URL
+            $rootScope.path = $location.path();
+        });
+
+        /**
+          * Faz um redirecionamento
+          */
+        $rootScope.ir = function(url){
+            $location.path(url);
+        }
+    });
 })();

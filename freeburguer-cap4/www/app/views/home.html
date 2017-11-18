@@ -1,14 +1,24 @@
-<header class="toolbar {{ device }} barFixed">
-    <section class="buttons"></section>
+<div class="content home content-center">
 
-    <section class="title {{ device }}">
-        Hamburgueria
-    </section>
+    <!--
+        Aqui, para manter o código limpo, usei um `include` do AngularJS
+    -->
+    <div class="svg" ng-include="'app/views/_svg-home.html'"></div>
 
-    <section class="buttons">
-        <button class="{{ device }}" ng-click="logout()">
-            <i class="exit"></i>
-            <span class="text">Sair</span>
+    <div class="home-body">
+
+        <!-- Código da empresa -->
+        <input type="text" placeholder="Código da casa" maxlength="6">
+
+        <!-- Botão de escanear -->
+        <button ng-click="ir('/cardapio')">
+            <svg>
+                <use xlink:href="assets/img/icons.svg#icon-qrcode"></use>
+            </svg>
         </button>
-    </section>
-</header>
+    </div>
+
+    <div class="footer">
+        <a ng-href="#!/buscar-pedido">Meus pedidos</a>
+    </div>
+</div>

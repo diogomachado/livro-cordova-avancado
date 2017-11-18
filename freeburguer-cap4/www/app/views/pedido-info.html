@@ -1,0 +1,56 @@
+<header class="toolbar {{ device }} barFixed">
+
+    <section class="buttons">
+        <button type="button" class="{{ device }}" ng-click="ir('/buscar-pedido')">
+            <i class="icon-back"></i>
+            <span class="text">Voltar</span>
+        </button>
+    </section>
+
+    <section class="title {{ device }}">
+        Detalhes do pedido
+    </section>
+
+    <section class="buttons"></section>
+
+</header>
+
+<div class="content">
+    <div class="pedido">
+        <div class="content-padded">
+            <div class="pedido-codigo-descricao">Código do pedido</div>
+            <div class="pedido-codigo">P201920</div>
+        </div>
+
+        <div class="pedido-botoes">
+            <div class="content-padded">
+                <p>Opções</p>
+            </div>
+
+            <!-- Botões -->
+            <button type="button">
+                <svg class="icon icon-map-android" ng-show="device == 'android'">
+                    <use xlink:href="assets/img/icons.svg#icon-map-android"></use>
+                </svg>
+                <svg class="icon icon-map-ios" ng-show="device == 'ios'">
+                    <use xlink:href="assets/img/icons.svg#icon-map-ios"></use>
+                </svg>
+                <span>Rastrear pedido</span>
+            </button>
+            <button type="button">
+                <svg class="icon icon-add-android" ng-show="device == 'android'">
+                    <use xlink:href="assets/img/icons.svg#icon-add-android"></use>
+                </svg>
+                <svg class="icon icon-add-ios" ng-show="device == 'ios'">
+                    <use xlink:href="assets/img/icons.svg#icon-add-ios"></use>
+                </svg>
+                <span>Cadastrar como contato</span>
+            </button>
+
+        </div>
+        <div class="pedido-resumo content-padded">
+            <p>Total pedido</p>
+            <p>{{ '34.10' | currency }}</p>
+        </div>
+    </div>
+</div>

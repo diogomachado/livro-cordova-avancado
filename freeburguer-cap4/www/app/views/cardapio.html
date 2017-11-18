@@ -1,0 +1,64 @@
+<header class="toolbar {{ device }} barFixed">
+    <section class="buttons"></section>
+
+    <section class="title {{ device }}">
+        Nome empresa
+    </section>
+
+    <section class="buttons">
+        <button type="button" class="{{ device }}">
+            <i class="icon-exit"></i>
+            <span class="text">Sair</span>
+        </button>
+    </section>
+</header>
+
+<div class="content content-padded">
+
+    <ul class="checkbox-wrapper">
+        <li class="titulo-secao {{ device }}">
+            Cardápio
+        </li>
+
+        <!-- Mockup de itens -->
+        <li class="checkbox-item">
+            <label>
+                <div class="checkbox-info">
+                    <p class="checkbox-info-titulo">X-Tudo</p>
+                    <p class="checkbox-info-preco">{{ '19.90' | currency}}</p>
+                    <p class="checkbox-info-descricao">Pão, Carne, Queijo, Bacon, Ovo e Salada</p>
+                </div>
+                <div class="checkbox-input">
+                    <input type="checkbox">
+                    <span class="{{ device }}"></span>
+                </div>
+            </label>
+        </li>
+        <li class="checkbox-item">
+            <label>
+                <div class="checkbox-info">
+                    <p class="checkbox-info-titulo">X-Bacon</p>
+                    <p class="checkbox-info-preco">{{ '17.40' | currency}}</p>
+                    <p class="checkbox-info-descricao">Pão, Carne, Queijo, Bacon e Batata</p>
+                </div>
+                <div class="checkbox-input">
+                    <input type="checkbox">
+                    <span class="{{ device }}"></span>
+                </div>
+            </label>
+        </li>
+        <!-- // Mockup de itens -->
+
+    </ul>
+</div>
+
+<footer class="footer-pedido" class="abrir-footer">
+    <div class="footer-pedido-detalhes">
+        <p>Total</p>
+        <p>{{ '34.10' | currency }}</p>
+    </div>
+
+    <div class="footer-pedido-botoes" ng-click="ir('/pedido-info')">
+        <button type="button" class="{{ device }}">Fechar pedido</button>
+    </div>
+</footer>
