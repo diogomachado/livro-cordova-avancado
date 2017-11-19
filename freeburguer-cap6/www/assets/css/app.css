@@ -1,0 +1,791 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/*
+No webkit, retira laranja do focus no link
+*/
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    /* Desliga opção de copiar ao tocar no texto */
+    -webkit-touch-callout: none;
+    /* Impede o webkit de redimensionar o texto */
+    -webkit-text-size-adjust: none;
+    /* Evita selecionar o texto */
+    -webkit-user-select: none;
+    background: #FAFAFA;
+}
+
+/*
+Reseta os padrões de button
+*/
+button{
+    outline: none;
+    border: 0;
+    background: none;
+}
+
+button svg{
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Fontes
+*/
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('../fonts/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/roboto-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../fonts/roboto-bold-webfont.eot');
+    src: url('../fonts/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-bold-webfont.woff2') format('woff2'),
+         url('../fonts/roboto-bold-webfont.woff') format('woff'),
+         url('../fonts/roboto-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF-UI-Display-Regular';
+    src: url('../fonts/sf-ui-display-regular-webfont.eot');
+    src: url('../fonts/sf-ui-display-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sf-ui-display-regular-webfont.woff2') format('woff2'),
+         url('../fonts/sf-ui-display-regular-webfont.woff') format('woff'),
+         url('../fonts/sf-ui-display-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF-UI-Text-Bold';
+    src: url('../fonts/sf-ui-text-bold-webfont.eot');
+    src: url('../fonts/sf-ui-text-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sf-ui-text-bold-webfont.woff2') format('woff2'),
+         url('../fonts/sf-ui-text-bold-webfont.woff') format('woff'),
+         url('../fonts/sf-ui-text-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+Classes tipograficas
+*/
+.fonte-android{
+    font-family: 'Roboto-Regular';
+}
+
+.fonte-ios{
+    font-family: 'SF-UI-Display-Regular';
+}
+
+/*
+Disposicao de conteudo
+*/
+.content-padded{
+    padding: 3%;
+}
+
+.content{
+    display: flex;
+    height: 100%;
+}
+
+.content-center{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*
+Toolbar
+*/
+.toolbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background: #3949AB;
+    height: 44px;
+    color: white;
+    z-index: 25;
+}
+
+.toolbar.android{
+    box-shadow: 0 1px 8px rgba(0,0,0,.3);
+}
+
+.toolbar button{
+    position: relative;
+    background: none;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    font-size: 1.45em;
+    line-height: 0;
+    display: inline-block;
+    overflow: hidden;
+    outline: none;
+    color: #1A237E;
+}
+
+.toolbar section{
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    height: 100%;
+}
+
+.toolbar section.title{
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    width: 90%;
+}
+
+section.buttons{
+    width: 18%;
+}
+
+/* No android, secoes de botoes vazias nao ocupam espaco */
+.toolbar.android section.buttons:empty{
+    display: none;
+}
+
+.toolbar.android section.buttons:nth-child(1) + .title{
+    padding-left: 3%;
+}
+
+.title.ios{
+    justify-content: center;
+    padding: 0;
+}
+
+/*
+Comportamento no iOS - Icones somem, descricao aparecem
+*/
+.toolbar section button span.text{
+     display: none;
+}
+
+.toolbar section button.ios{
+    font-size: .8em;
+}
+
+.toolbar section button.ios i{
+    display: none;
+}
+
+.toolbar section button.ios span.text{
+    display: block;
+    padding: 1rem 0;
+    color: rgba(255,255,255, 0.85);
+}
+
+.toolbar section i.ios:before{
+    content: "";
+}
+
+/*
+Tratamento diferenciado da altura do toolbar de acordo com DPR
+*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 2){
+
+    body{
+        font-size: 18px;
+    }
+
+    .toolbar{
+        height: 50px;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 3){
+    body{
+        font-size: 20px;
+    }
+
+    .toolbar{
+        height: 55px;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 3.5){
+    body{
+        font-size: 22px;
+    }
+
+    .toolbar{
+        height: 58px;
+    }
+}
+
+/*
+Cards
+*/
+.card{
+    background: white;
+    border-radius: 2.5px;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+}
+
+.card.ios{
+    background: rgba(255,255,255,0.93);
+}
+
+.card-body, .card-footer{
+    padding: 5%;
+}
+
+.card-footer button, .card-footer a{
+    background: none;
+    border: 0;
+    text-transform: uppercase;
+    color: #FFC107;
+    text-decoration: none;
+}
+
+/*
+Checkbox
+*/
+.checkbox-wrapper{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.checkbox-wrapper label{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 2.5% 0;
+    border-bottom: 1px #E3E3E3 solid;
+}
+
+.checkbox-item input[type="checkbox"]:not(:checked),
+.checkbox-item input[type="checkbox"]:checked{
+    display: none;
+}
+
+.checkbox-item input[type="checkbox"] + span{
+    position: relative;
+    padding: 12px;
+    font-size: 0;
+}
+
+.checkbox-item input[type="checkbox"]:not(:checked) + span.android{
+    background: url(../img/checkbox-android-blank.svg) no-repeat;
+}
+
+.checkbox-item input[type="checkbox"]:checked + span.android{
+    background: url(../img/checkbox-android.svg) no-repeat;
+}
+
+.checkbox-item input[type="checkbox"]:not(:checked) + span.ios{
+    background: none;
+}
+
+.checkbox-item input[type="checkbox"]:checked + span.ios{
+    background: url(../img/checkbox-ios.svg) no-repeat;
+}
+
+.titulo-secao{
+    font-size: 15px;
+    color: #95989A;
+    padding: 5% 0;
+}
+
+.titulo-secao.android{
+    font-family: 'Roboto-Bold';
+}
+
+.titulo-secao.ios{
+    background: #F5F5F5;
+    text-transform: uppercase;
+    font-size: .65em;
+    padding: 17px 10px 8px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-bottom: 1px #EEEEEE solid;
+}
+
+.checkbox-info,
+.checkbox-input{
+    display: inline-block;
+}
+
+.checkbox-info{
+    width: 85%;
+}
+
+.checkbox-input{
+    height: 100%;
+    text-align: center;
+    position: relative;
+    float: right;
+    vertical-align: middle;
+}
+
+.checkbox-info-titulo{
+    font-size: 14px;
+    color: #212121;
+    margin: 0;
+}
+
+.checkbox-info-descricao{
+    font-size: .7em;
+    color: #95989A;
+    margin: 0;
+}
+
+.checkbox-info-preco{
+    margin: 5px 0 10px 0;
+    font-size: 12px;
+    color: #7CB184;
+}
+
+/*
+Home
+*/
+.home input[type="text"]{
+    border: 0;
+    border-bottom: 1px rgba(179, 154, 154, 0.28) solid;
+    background: none;
+    width: 70%;
+    outline: none;
+    text-align: center;
+    color: #5a5a5a;
+}
+
+.home input[type="text"]:focus{
+    transition-duration: 300ms;
+}
+
+.home button i.qrcode{
+    color: #696868;
+    font-size: 1.5em;
+}
+
+.home-body{
+    display: inline-flex;
+    justify-content: center;
+}
+
+.home-body form{
+    display: inline-flex;
+    justify-content: center;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+}
+
+@media screen and (max-height: 340px){
+    .footer{
+        display: none;
+    }
+}
+
+.footer button,
+.footer a{
+    font-size: 14px;
+    padding: 5%;
+    color: #95989A;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/*
+Rodape
+*/
+
+.footer-pedido{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 15px #00000014;
+    padding: 3%;
+}
+
+.footer-pedido-detalhes p{
+    padding: 0;
+    margin: 0;
+}
+
+.footer-pedido-detalhes p:nth-child(1){
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #95989A;
+}
+
+.footer-pedido-detalhes p:nth-child(2){
+    font-size: 32px;
+    color: #27AE60;
+}
+
+.footer-pedido-botoes{
+    text-align: right;
+}
+
+
+.footer-pedido button{
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #2196F3;
+}
+
+.footer-pedido button.android{
+    font-family: 'Roboto-Bold';
+}
+
+.footer-pedido button.ios{
+    font-family: 'SF-UI-Text-Bold';
+}
+
+/*
+Pedido info
+*/
+.pedido-codigo-descricao{
+    font-size: 11px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 25px 0 0 0;
+    color: #95989A;
+}
+
+.pedido-codigo{
+    font-size: 36px;
+    color: #95989A;
+    padding: 0 0 5% 0;
+}
+
+.pedido-botoes button:first-of-type{
+    border-top: 1px #d0d0d0 solid;
+}
+
+.pedido-botoes button{
+    display: inline-flex;
+    width: 100%;
+    text-align: left;
+    border-radius: 2px;
+    padding: 5% 3%;
+    font-size: 0.85em;
+    color: #747474;
+    margin-bottom: 1.5%;
+    border-bottom: 1px #d0d0d0 solid;
+    vertical-align: middle;
+}
+
+.pedido-botoes button svg{
+  margin-right: 10px;
+  margin-left: 5px;
+  margin-top: -2px;
+}
+
+.pedido-botoes p{
+    font-size: 11px;
+    color: #CECECE;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Roboto-Bold';
+}
+
+.pedido-resumo{
+    margin-top: 25px;
+}
+
+.pedido-resumo p{
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: #95989A;
+}
+
+.pedido-resumo p:nth-child(2){
+    font-size: 32px;
+    color: #27AE60;
+    line-height: 1em;
+    margin-top: .2em;
+}
+
+/*
+Transicoes
+*/
+.home, .slide{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.slide.ng-enter,
+.slide.ng-leave,
+.home.ng-enter,
+.home.ng-leave{
+    -webkit-transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide.ng-enter {
+    transform: translateX(100%);
+}
+
+.slide.ng-enter-active {
+    transform: translateX(0%);
+}
+
+/* Diferencio a animacao do home */
+.home.ng-enter {
+    transform: translateX(0%);
+}
+
+.home.ng-enter-active {
+    transform: translateX(0%);
+}
+
+.slide.ng-leave,
+.home.ng-leave {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.slide.ng-leave-active,
+.home.ng-leave-active {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/*
+Animação extra
+*/
+
+.abrir-footer,
+.fechar-footer{
+    animation-duration: 300ms;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.abrir-footer{
+    animation-name: abrirFooter;
+}
+
+.fechar-footer{
+    animation-name: fecharFooter;
+}
+
+@-webkit-keyframes abrirFooter {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+@-o-keyframes abrirFooter {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+@-moz-keyframes abrirFooter {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+@keyframes abrirFooter {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes fecharFooter {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+@-o-keyframes fecharFooter {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+@-moz-keyframes fecharFooter {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+@keyframes fecharFooter {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+/*
+Spinner de carregamento
+*/
+.spinner-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 28;
+    background: #f1c40f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+/*
+Alerta offline
+*/
+.offline-alert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 28;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.offline-alert p{
+    margin: 0;
+    font-weight: normal;
+    font-family: 'Roboto-Light';
+}
+
+.offline-alert p:first-of-type{
+    font-size: 17px;
+    color: #607D8B;
+    margin: 8px 0;
+}
+
+.offline-alert p:nth-of-type(2){
+    font-size: 13px;
+    color: #9E9E9E;
+}
+
+.offline-alert svg{
+    width: 100px;
+}
+
+.offline-alert .tomada.on{
+    animation: ligarTomada 1.5s ease both;
+}
+
+.offline-alert .tomada.off{
+    animation: tirarTomada 1.5s ease both;
+}
+
+@keyframes ligarTomada{
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(32%) translateY(-32%);
+    }
+}
+
+@keyframes tirarTomada{
+    from {
+        transform: translateX(32%) translateY(-32%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
