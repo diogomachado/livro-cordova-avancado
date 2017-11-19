@@ -1,0 +1,11 @@
+{
+    "android": {
+        "release": {
+            "keystore": "./freeburguer.keystore",
+            "storePassword": "123456",
+            "alias": "freeburguer",
+            "password" : "123456",
+            "keystoreType": ""
+        }
+    }
+}

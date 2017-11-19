@@ -1,0 +1,8 @@
+{
+  "name": "hello",
+  "app_id": "",
+  "type": "custom",
+  "integrations": {
+    "cordova": {}
+  }
+}
