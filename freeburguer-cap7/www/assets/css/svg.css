@@ -1,0 +1,14 @@
+/*
+    Customizações necessárias para animar o SVG nas views:
+    > views/_svg-home.html
+    > views/_svg-pedido-busca.html
+*/
+
+.svg {
+    text-align: center;
+}
+
+.svg svg{
+    width: 85%;
+    overflow: visible;
+}
