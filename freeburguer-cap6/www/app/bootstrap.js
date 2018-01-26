@@ -53,6 +53,33 @@
             $rootScope.device = plataforma.toLowerCase();
 
             /**
+              * (Pushnotication)
+              */
+            $timeout(function(){
+
+                /**
+                  * Callback de mensagem aberta
+                  */
+                var abrirMensagem = function(jsonRetorno) {
+
+                    // Dados enviados pelo oneSignal
+                    console.log(jsonRetorno);
+
+                    // Exemplo
+                    console.info(jsonRetorno.notification.payload.additionalData);
+                };
+
+                /**
+                  * Faz o registro do aparelho
+                  */
+                window.plugins.OneSignal
+                .startInit("01fa3550-aa00-491d-a9bd-9e62a286501c")
+                .handleNotificationOpened(abrirMensagem)
+                .endInit();
+
+            }, 1000);
+
+            /**
               * (Android): Atacando evento de voltar `backbutton`
               */
             document.addEventListener("backbutton", function(){

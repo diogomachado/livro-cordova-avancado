@@ -19,7 +19,7 @@
     <div class="pedido">
         <div class="content-padded">
             <div class="pedido-codigo-descricao">Código do pedido</div>
-            <div class="pedido-codigo">P201920</div>
+            <div class="pedido-codigo">{{ pedido.codigo }}</div>
         </div>
 
         <div class="pedido-botoes">
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Botões -->
-            <button type="button">
+            <button type="button" ng-click="PedidoInfo.navegar(-20.849006, -41.116703)">
                 <svg class="icon icon-map-android" ng-show="device == 'android'">
                     <use xlink:href="assets/img/icons.svg#icon-map-android"></use>
                 </svg>
@@ -37,7 +37,7 @@
                 </svg>
                 <span>Rastrear pedido</span>
             </button>
-            <button type="button">
+            <button type="button" ng-click="PedidoInfo.cadastrarContato()">
                 <svg class="icon icon-add-android" ng-show="device == 'android'">
                     <use xlink:href="assets/img/icons.svg#icon-add-android"></use>
                 </svg>
@@ -50,7 +50,7 @@
         </div>
         <div class="pedido-resumo content-padded">
             <p>Total pedido</p>
-            <p>{{ '34.10' | currency }}</p>
+            <p>{{ total_pedido | currency }}</p>
         </div>
     </div>
 </div>

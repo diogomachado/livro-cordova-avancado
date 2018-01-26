@@ -1,3 +1,24 @@
-<header class="header">
-    <h1 class="header-title">Cardápio</h1>
-</header>
+<div class="content home content-center">
+
+    <!--
+        Aqui, para manter o código limpo, usei um `include` do AngularJS
+    -->
+    <div class="svg" ng-include="'app/views/_svg-home.html'"></div>
+
+    <div class="home-body">
+
+        <!-- Código da empresa -->
+        <input type="text" placeholder="Código da casa" maxlength="6">
+
+        <!-- Botão de escanear -->
+        <button ng-click="ir('/cardapio')">
+            <svg>
+                <use xlink:href="assets/img/icons.svg#icon-qrcode"></use>
+            </svg>
+        </button>
+    </div>
+
+    <div class="footer">
+        <a ng-href="#!/buscar-pedido">Meus pedidos</a>
+    </div>
+</div>

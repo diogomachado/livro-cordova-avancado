@@ -6,8 +6,8 @@
     <div class="svg" ng-include="'app/views/_svg-pedido-busca.html'"></div>
 
     <div class="home-body">
-        <form name="formBuscar" ng-submit="ir('/pedido-info')">
-            <input type="text" placeholder="Código do pedido" maxlength="6" required>
+        <form name="formBuscar" ng-submit="PedidoBusca.buscar()">
+            <input type="text" ng-model="codigo_pedido" placeholder="Código do pedido" maxlength="6" required>
             <button type="submit">
                 <svg>
                     <use xlink:href="assets/img/icons.svg#icon-arrow_forward"></use>

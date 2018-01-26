@@ -1,4 +1,6 @@
 (function() {
+
+
     angular.module('app').directive('barFixed', function ($timeout, $window) {
 
         var $win = angular.element($window); // wrap window object as jQuery object
@@ -26,6 +28,7 @@
                         }
                     });
                 });
+
             },
         };
     });

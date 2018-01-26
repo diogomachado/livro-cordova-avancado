@@ -12,39 +12,3 @@
     width: 85%;
     overflow: visible;
 }
-
-#ketchup{
-    display: none;
-}
-
-#ketchup.pingar{
-    display: block;
-    animation: pingar 2s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
-}
-
-@keyframes pingar{
-    55%{
-        transform: translateY(10px);
-    }
-    100%{
-        transform: translateY(645px);
-    }
-}
-
-#svg-truck{
-    opacity: 0;
-    transform: translateX(-130%);
-    animation: entrar 1s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
-    animation-delay: 600ms;
-}
-
-@keyframes entrar{
-    85%{
-        transform: rotate(-15deg);
-    }
-    100%{
-        opacity: 1;
-        transform: translateX(0%);
-        transform: rotate(0deg);
-    }
-}

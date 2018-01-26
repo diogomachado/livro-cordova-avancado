@@ -122,6 +122,18 @@
                 });
             });
         }
+
+        /**
+          * Faz o SVG `pingar`
+          */
+        this.pingar = function(){
+
+            // Coleta o elemento
+            var element = document.querySelector('#ketchup');
+
+            // Adiciona classe para animar
+            element.setAttribute("class", "pingar");
+        }
     }
 
 })();
