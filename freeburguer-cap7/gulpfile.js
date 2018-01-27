@@ -1,14 +1,13 @@
 var css = [
-    './www/bower_components/normalize-css/normalize.css',
     './www/assets/css/*'
 ];
 
-var gulp = require('gulp');
-var uglify = require("gulp-uglify");
-var concat = require("gulp-concat");
-var cssmin = require("gulp-cssmin");
+var gulp             = require('gulp');
+var uglify           = require("gulp-uglify");
+var concat           = require("gulp-concat");
+var cssmin           = require("gulp-cssmin");
 var stripCssComments = require('gulp-strip-css-comments');
-var watch = require('gulp-watch');
+var watch            = require('gulp-watch');
 
 gulp.task('minify-css', function(){
     gulp.src(css)
